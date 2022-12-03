@@ -40,7 +40,7 @@ class _HomeScreenState extends State<HomeScreen> {
             currentIndex: currentIndex,
             items: [
               bottomBar('assets/images/quran.png', 'Quran'),
-              bottomBar('assets/images/sebha.png', 'Sebha'),
+               bottomBar('assets/images/sebha.png', 'Sebha'),
               bottomBar('assets/images/ahades.png', 'Ahades'),
               bottomBar('assets/images/radio.png', 'Radio'),
             ],
