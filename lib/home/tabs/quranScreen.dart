@@ -24,7 +24,7 @@ class QuranScreen extends StatelessWidget {
           child: Container(
             width: MediaQuery.of(context).size.width*0.90,
             decoration: BoxDecoration(
-                color: Colors.green,
+//                color: Colors.green,
                 borderRadius: BorderRadius.circular(35)
               //more than 50% of width makes circle
             ),
@@ -41,7 +41,7 @@ class QuranScreen extends StatelessWidget {
         ),
         Expanded(
           child: ListView.separated(itemBuilder: (context, index) {
-            return SuraName(SuraNames[index]);
+            return SuraName(SuraNames[index],index);
           },
               separatorBuilder:(context, index) {
                 return Divider(

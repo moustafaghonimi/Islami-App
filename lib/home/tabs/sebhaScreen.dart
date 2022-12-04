@@ -19,79 +19,88 @@ class _SebhaScreenState extends State<SebhaScreen> {
   @override
   Widget build(BuildContext context) {
     return Center(
-      child: Column(
-        mainAxisAlignment: MainAxisAlignment.start,
-        children: [
-          Stack(
-            children: [
-              Center(
-                child: Image.asset(
-                  'assets/images/sebha_head.png',
+      child: SingleChildScrollView(
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.start,
+          children: [
+            Stack(
+              children: [
+                Center(
+                  child: Image.asset('assets/images/sebha_head.png'),
                 ),
-              ),
-              Padding(
-                padding: const EdgeInsets.only(top: 65),
-                child: Center(
+                Padding(
+                  padding: const EdgeInsets.only(top: 65),
+                  child: Center(
                     child: InkWell(
                       onTap: () {
                         calcTabAtBtn();
                       },
-                        child: Image.asset('assets/images/sebha_logo.png'),),),
-              ),
-            ],
-          ),
-          SizedBox(
-            height: 22,
-          ),
-          Container(
-            child: Text(
-              'Tasbeh Number',
-              style: Theme.of(context)
-                  .textTheme
-                  .headline1
-                  ?.copyWith(fontWeight: FontWeight.normal),
-            ),
-          ),
-          SizedBox(
-            height: 22,
-          ),
-          InkWell(
-            onTap: () {
-              calcTabAtBtn();
-            },
-            child: Container(
-                // width: MediaQuery.of(context).size.width*.20,
-                // height: MediaQuery.of(context).size.height*.10,
-                decoration: BoxDecoration(
-                  color: Color.fromRGBO(183, 147, 95, 1.0),
-                  borderRadius: BorderRadius.circular(60),
-                ),
-                padding: EdgeInsets.all(25),
-                child: Text(
-                  '${current}',
-                  style: Theme.of(context).textTheme.headline1?.copyWith(
-                        fontSize: 40,
+                      child: Transform(
+                        child: Image.asset(
+                          'assets/images/sebha_logo.png',
+                        ),
+                       alignment: FractionalOffset.center,
+                       transformHitTests: true, transform: new Matrix4.identity()..rotateZ((current*5.5)*3.14/180),
                       ),
-                  textAlign: TextAlign.center,
-                )),
-          ),
-          SizedBox(
-            height: 22,
-          ),
-          Container(
-            padding: EdgeInsets.symmetric(horizontal: 20),
-            decoration: BoxDecoration(
-              color: MyThemeData.colorGold,
-              borderRadius: BorderRadius.circular(30),
+                    ),
+                  ),
+                ),
+              ],
             ),
-            clipBehavior: Clip.antiAliasWithSaveLayer,
-            child: Text(
-              dowa[indexOfDowa],
-              style: Theme.of(context).textTheme.headline1?.copyWith(
-                  fontWeight: FontWeight.normal, color: Colors.white),
+            SizedBox(
+              height: 22,
             ),
-          )
-        ],
+            Container(
+              child: Text(
+                'Tasbeh Number',
+                style: Theme.of(context)
+                    .textTheme
+                    .headline1
+                    ?.copyWith(fontWeight: FontWeight.normal),
+              ),
+            ),
+            SizedBox(
+              height: 22,
+            ),
+            InkWell(
+              onTap: () {
+                calcTabAtBtn();
+              },
+              child: Container(
+
+                  // width: MediaQuery.of(context).size.width*.20,
+                  // height: MediaQuery.of(context).size.height*.10,
+                  decoration: BoxDecoration(
+                    color: Color.fromRGBO(183, 147, 95, 1.0),
+                    borderRadius: BorderRadius.circular(60),
+                  ),
+                  padding: EdgeInsets.all(25),
+                  child: Text(
+                    '${current}',
+                    style: Theme.of(context).textTheme.headline1?.copyWith(
+                          fontSize: 40,
+                        ),
+                    textAlign: TextAlign.center,
+                  )),
+            ),
+            SizedBox(
+              height: 22,
+            ),
+            Container(
+              padding: EdgeInsets.symmetric(horizontal: 20),
+              decoration: BoxDecoration(
+                color: MyThemeData.colorGold,
+                borderRadius: BorderRadius.circular(30),
+              ),
+              clipBehavior: Clip.antiAliasWithSaveLayer,
+              child: Text(
+                dowa[indexOfDowa],
+                style: Theme.of(context).textTheme.headline1?.copyWith(
+                    fontWeight: FontWeight.normal, color: Colors.white),
+              ),
+            )
+          ],
+        ),
       ),
     );
   }
@@ -103,6 +112,7 @@ class _SebhaScreenState extends State<SebhaScreen> {
     } else {
       current = 1;
     }
+
     setState(() {});
   }
 
