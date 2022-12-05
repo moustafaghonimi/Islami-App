@@ -1,6 +1,6 @@
 
 import 'package:flutter/material.dart';
-import 'package:islami_app/home/sura_details.dart';
+import 'package:islami_app/home/sura_detailes/sura_details.dart';
 
 class SuraName extends StatelessWidget {
   String suraName;

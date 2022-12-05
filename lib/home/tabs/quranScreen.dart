@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 import '../../my_them.dart';
-import '../sura_name.dart';
+import '../sura_detailes/sura_name.dart';
 
 class QuranScreen extends StatelessWidget {
   List<String>SuraNames=["الفاتحه","البقرة","آل عمران","النساء","المائدة","الأنعام","الأعراف","الأنفال","التوبة","يونس","هود"
@@ -24,7 +24,6 @@ class QuranScreen extends StatelessWidget {
           child: Container(
             width: MediaQuery.of(context).size.width*0.90,
             decoration: BoxDecoration(
-//                color: Colors.green,
                 borderRadius: BorderRadius.circular(35)
               //more than 50% of width makes circle
             ),

@@ -39,6 +39,7 @@ class _SuraDetilesState extends State<SuraDetiles> {
               : Container(
                   padding: EdgeInsets.all(5),
                   margin: EdgeInsets.all(10),
+                  height: MediaQuery.of(context).size.height * .83,
                   decoration: BoxDecoration(
                     color: MyThemeData.colorWhite,
                     borderRadius: BorderRadius.circular(30),

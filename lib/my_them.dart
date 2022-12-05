@@ -10,7 +10,6 @@ class MyThemeData {
       appBarTheme: AppBarTheme(
         iconTheme: IconThemeData(
           color: Colors.black,
-
         ),
         backgroundColor: Colors.transparent,
         elevation: 0,
@@ -19,11 +18,8 @@ class MyThemeData {
         backgroundColor: colorGold,
         selectedItemColor: Colors.black,
         unselectedItemColor: Colors.white,
-
-
       ),
       textTheme: TextTheme(
-
           headline1: TextStyle(
         fontSize: 30,
         fontWeight: FontWeight.bold,
