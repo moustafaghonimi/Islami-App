@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 import '../../my_them.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class SebhaScreen extends StatefulWidget {
   @override
@@ -52,7 +53,7 @@ class _SebhaScreenState extends State<SebhaScreen> {
             ),
             Container(
               child: Text(
-                'Tasbeh Number',
+                AppLocalizations.of(context)!.tasbeh_num,
                 style: Theme.of(context)
                     .textTheme
                     .headline1

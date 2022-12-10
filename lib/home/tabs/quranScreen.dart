@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 
 import '../../my_them.dart';
 import '../sura_detailes/sura_name.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class QuranScreen extends StatelessWidget {
   List<String>SuraNames=["الفاتحه","البقرة","آل عمران","النساء","المائدة","الأنعام","الأعراف","الأنفال","التوبة","يونس","هود"
@@ -31,7 +32,7 @@ class QuranScreen extends StatelessWidget {
             child: Container (
               color: MyThemeData.colorGold,
               width: MediaQuery.of(context).size.width*0.90,
-              child: Text('Sura Name',style: Theme.of(context).textTheme.headline1?.copyWith(
+              child: Text(AppLocalizations.of(context)!.suraName,style: Theme.of(context).textTheme.headline1?.copyWith(
                 fontSize: 22,
                 color: MyThemeData.colorBlack,
               ),textAlign: TextAlign.center),
