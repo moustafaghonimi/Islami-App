@@ -3,6 +3,7 @@ import 'package:islami_app/home/tabs/ahadesScreen.dart';
 import 'package:islami_app/home/tabs/quranScreen.dart';
 import 'package:islami_app/home/tabs/radioScreen.dart';
 import 'package:islami_app/home/tabs/sebhaScreen.dart';
+import 'package:islami_app/home/tabs/settings/setting_tab.dart';
 import 'package:islami_app/my_them.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
@@ -44,6 +45,12 @@ class _HomeScreenState extends State<HomeScreen> {
               bottomBar('assets/images/sebha.png', AppLocalizations.of(context)!.sebha),
               bottomBar('assets/images/ahades.png', AppLocalizations.of(context)!.ahadeth),
               bottomBar('assets/images/radio.png', AppLocalizations.of(context)!.radio),
+            BottomNavigationBarItem(
+              icon:   Icon(Icons.settings),
+              label: AppLocalizations.of(context)!.setting,
+              backgroundColor: Theme.of(context).colorScheme.primary,
+            )
+
             ],
           ),
           body: Tabs[currentIndex],
@@ -57,13 +64,14 @@ class _HomeScreenState extends State<HomeScreen> {
     SebhaScreen(),
     AhadesScreen(),
     RadioScreen(),
+    Setting(),
   ];
 
   BottomNavigationBarItem bottomBar(String imgName, String label) {
     return BottomNavigationBarItem(
       icon: ImageIcon(AssetImage(imgName)),
       label: label,
-      backgroundColor: MyThemeData.colorGold,
+      backgroundColor:Theme.of(context).colorScheme.primary,
     );
   }
 }
