@@ -1,5 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:islami_app/home/tabs/settings/themBottomSheet.dart';
+import 'package:islami_app/my_them.dart';
+import 'package:islami_app/providers/myProvider.dart';
+import 'package:provider/provider.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 import 'langBottomSheet.dart';
 
@@ -8,13 +12,14 @@ class Setting extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    var provider=Provider.of<Myprovider>(context);
     return Container(
       padding: EdgeInsets.all(20),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Text(
-            'Language',
+            AppLocalizations.of(context)!.language,
             style: Theme.of(context).textTheme.headline1,
           ),
           SizedBox(
@@ -34,7 +39,7 @@ class Setting extends StatelessWidget {
               padding: EdgeInsets.all(10),
               width: double.infinity,
               child: Text(
-                'English',
+                provider.langCode=='en'?'English':'العربيه',
                 style: TextStyle(fontSize: 25),
                 textAlign: TextAlign.center,
               ),
@@ -54,7 +59,7 @@ class Setting extends StatelessWidget {
             height: 30,
           ),
           Text(
-            'Theme',
+            AppLocalizations.of(context)!.theme,
             style: Theme.of(context).textTheme.headline1,
           ),
           SizedBox(
@@ -74,7 +79,7 @@ class Setting extends StatelessWidget {
               padding: EdgeInsets.all(10),
               width: double.infinity,
               child: Text(
-                'Light',
+                provider.themeMode==ThemeMode.light?'Light':'Dark',
                 style: TextStyle(fontSize: 25),
                 textAlign: TextAlign.center,
               ),
@@ -85,12 +90,14 @@ class Setting extends StatelessWidget {
     );
   }
   void ShowButtomLangButtonScheat(BuildContext context){
-    showModalBottomSheet(context: context, builder: (context){
+    showModalBottomSheet(backgroundColor: Theme.of(context).colorScheme.secondary,context: context, builder: (context){
+
     return LangBottomSheet();
     });
   }
   void ShowButtomThemeButtonScheat(BuildContext context){
-    showModalBottomSheet(context: context, builder: (context){
+    showModalBottomSheet(backgroundColor: Theme.of(context).colorScheme.secondary,context: context, builder: (context){
+
     return ThemBottomSheet();
     });
   }

@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:islami_app/providers/myProvider.dart';
+import 'package:provider/provider.dart';
 
 import '../../my_them.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
@@ -8,6 +10,7 @@ class RadioScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    var provider=Provider.of<Myprovider>(context);
     return SingleChildScrollView(
       child: Column(
         children: [
@@ -60,4 +63,5 @@ class RadioScreen extends StatelessWidget {
       ),
     );
   }
+
 }

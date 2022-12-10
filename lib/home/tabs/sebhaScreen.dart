@@ -87,17 +87,20 @@ class _SebhaScreenState extends State<SebhaScreen> {
             SizedBox(
               height: 22,
             ),
-            Container(
-              padding: EdgeInsets.symmetric(horizontal: 20),
-              decoration: BoxDecoration(
-                color: MyThemeData.colorGold,
-                borderRadius: BorderRadius.circular(30),
-              ),
-              clipBehavior: Clip.antiAliasWithSaveLayer,
-              child: Text(
-                dowa[indexOfDowa],
-                style: Theme.of(context).textTheme.headline1?.copyWith(
-                    fontWeight: FontWeight.normal, color: Colors.white),
+            InkWell(
+              onTap: () =>  calcTabAtBtn(),
+              child: Container(
+                padding: EdgeInsets.symmetric(horizontal: 20),
+                decoration: BoxDecoration(
+                  color: MyThemeData.colorGold,
+                  borderRadius: BorderRadius.circular(30),
+                ),
+                clipBehavior: Clip.antiAliasWithSaveLayer,
+                child: Text(
+                  dowa[indexOfDowa],
+                  style: Theme.of(context).textTheme.headline1?.copyWith(
+                      fontWeight: FontWeight.normal, color: Colors.white),
+                ),
               ),
             )
           ],
