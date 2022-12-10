@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 import '../../my_them.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class SebhaScreen extends StatefulWidget {
   @override
@@ -52,7 +53,7 @@ class _SebhaScreenState extends State<SebhaScreen> {
             ),
             Container(
               child: Text(
-                'Tasbeh Number',
+                AppLocalizations.of(context)!.tasbeh_num,
                 style: Theme.of(context)
                     .textTheme
                     .headline1
@@ -86,17 +87,20 @@ class _SebhaScreenState extends State<SebhaScreen> {
             SizedBox(
               height: 22,
             ),
-            Container(
-              padding: EdgeInsets.symmetric(horizontal: 20),
-              decoration: BoxDecoration(
-                color: MyThemeData.colorGold,
-                borderRadius: BorderRadius.circular(30),
-              ),
-              clipBehavior: Clip.antiAliasWithSaveLayer,
-              child: Text(
-                dowa[indexOfDowa],
-                style: Theme.of(context).textTheme.headline1?.copyWith(
-                    fontWeight: FontWeight.normal, color: Colors.white),
+            InkWell(
+              onTap: () =>  calcTabAtBtn(),
+              child: Container(
+                padding: EdgeInsets.symmetric(horizontal: 20),
+                decoration: BoxDecoration(
+                  color: MyThemeData.colorGold,
+                  borderRadius: BorderRadius.circular(30),
+                ),
+                clipBehavior: Clip.antiAliasWithSaveLayer,
+                child: Text(
+                  dowa[indexOfDowa],
+                  style: Theme.of(context).textTheme.headline1?.copyWith(
+                      fontWeight: FontWeight.normal, color: Colors.white),
+                ),
               ),
             )
           ],

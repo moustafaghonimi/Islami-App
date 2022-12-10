@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
 import '../../my_them.dart';
+import '../../providers/myProvider.dart';
 import '../tabs/ahadesScreen.dart';
 
 class AhadesDetails extends StatelessWidget {
@@ -8,12 +10,14 @@ class AhadesDetails extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    var provider = Provider.of<Myprovider>(context);
+
     var args = ModalRoute.of(context)?.settings.arguments as HadethArgs;
 
     return Stack(
       children: [
         Image.asset(
-          'assets/images/background.png',
+          provider.changeBG(),
           width: double.infinity,
           fit: BoxFit.fitWidth,
         ),
@@ -33,7 +37,7 @@ class AhadesDetails extends StatelessWidget {
                   margin: EdgeInsets.all(10),
                   height: MediaQuery.of(context).size.height * .83,
                   decoration: BoxDecoration(
-                    color: MyThemeData.colorWhite,
+                    color:provider.themeMode==ThemeMode.light?Colors.white: Theme.of(context).colorScheme.primary,
                     borderRadius: BorderRadius.circular(30),
                   ),
                   clipBehavior: Clip.antiAliasWithSaveLayer,

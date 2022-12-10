@@ -1,12 +1,16 @@
 import 'package:flutter/material.dart';
+import 'package:islami_app/providers/myProvider.dart';
+import 'package:provider/provider.dart';
 
 import '../../my_them.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class RadioScreen extends StatelessWidget {
   const RadioScreen({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
+    var provider=Provider.of<Myprovider>(context);
     return SingleChildScrollView(
       child: Column(
         children: [
@@ -21,7 +25,7 @@ class RadioScreen extends StatelessWidget {
           ),
           Container(
             child: Text(
-              'اذاعة القران الكريم ',
+              AppLocalizations.of(context)!.quran_radio,
               style: Theme.of(context).textTheme.headline1?.copyWith(
                     fontSize: 25,
                     fontWeight: FontWeight.w400,
@@ -59,4 +63,5 @@ class RadioScreen extends StatelessWidget {
       ),
     );
   }
+
 }

@@ -3,7 +3,12 @@ import 'package:islami_app/home/tabs/ahadesScreen.dart';
 import 'package:islami_app/home/tabs/quranScreen.dart';
 import 'package:islami_app/home/tabs/radioScreen.dart';
 import 'package:islami_app/home/tabs/sebhaScreen.dart';
+import 'package:islami_app/home/tabs/settings/setting_tab.dart';
 import 'package:islami_app/my_them.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:provider/provider.dart';
+
+import '../providers/myProvider.dart';
 
 class HomeScreen extends StatefulWidget {
   static const String routeName = 'home';
@@ -17,17 +22,19 @@ class _HomeScreenState extends State<HomeScreen> {
 
   @override
   Widget build(BuildContext context) {
+    var provider = Provider.of<Myprovider>(context);
+
     return Stack(
       children: [
         Image.asset(
-          'assets/images/background.png',
+         provider.changeBG(),
           width: double.infinity,
           fit: BoxFit.fitWidth,
         ),
         Scaffold(
           appBar: AppBar(
             title: Text(
-              'Islami',
+              AppLocalizations.of(context)!.islami,
               style: Theme.of(context).textTheme.headline1,
             ),
             centerTitle: true,
@@ -39,10 +46,16 @@ class _HomeScreenState extends State<HomeScreen> {
             },
             currentIndex: currentIndex,
             items: [
-              bottomBar('assets/images/quran.png', 'Quran'),
-              bottomBar('assets/images/sebha.png', 'Sebha'),
-              bottomBar('assets/images/ahades.png', 'Ahades'),
-              bottomBar('assets/images/radio.png', 'Radio'),
+              bottomBar('assets/images/quran.png', AppLocalizations.of(context)!.quran),
+              bottomBar('assets/images/sebha.png', AppLocalizations.of(context)!.sebha),
+              bottomBar('assets/images/ahades.png', AppLocalizations.of(context)!.ahadeth),
+              bottomBar('assets/images/radio.png', AppLocalizations.of(context)!.radio),
+            BottomNavigationBarItem(
+              icon:   Icon(Icons.settings),
+              label: AppLocalizations.of(context)!.setting,
+              backgroundColor: Theme.of(context).colorScheme.primary,
+            )
+
             ],
           ),
           body: Tabs[currentIndex],
@@ -56,13 +69,14 @@ class _HomeScreenState extends State<HomeScreen> {
     SebhaScreen(),
     AhadesScreen(),
     RadioScreen(),
+    Setting(),
   ];
 
   BottomNavigationBarItem bottomBar(String imgName, String label) {
     return BottomNavigationBarItem(
       icon: ImageIcon(AssetImage(imgName)),
       label: label,
-      backgroundColor: MyThemeData.colorGold,
+      backgroundColor:Theme.of(context).colorScheme.primary,
     );
   }
 }

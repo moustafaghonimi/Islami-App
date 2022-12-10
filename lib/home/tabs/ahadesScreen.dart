@@ -3,6 +3,7 @@ import 'package:flutter/services.dart';
 
 import '../../my_them.dart';
 import '../ahades_detailes/ahades_name.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class AhadesScreen extends StatefulWidget {
   @override
@@ -31,7 +32,7 @@ class _AhadesScreenState extends State<AhadesScreen> {
             child: Container(
               color: MyThemeData.colorGold,
               width: MediaQuery.of(context).size.width * 0.90,
-              child: Text('Hadith Name',
+              child: Text(AppLocalizations.of(context)!.ahadeth,
                   style: Theme.of(context).textTheme.headline1?.copyWith(
                         fontSize: 22,
                         color: MyThemeData.colorBlack,
