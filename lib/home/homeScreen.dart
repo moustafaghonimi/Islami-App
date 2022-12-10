@@ -6,6 +6,9 @@ import 'package:islami_app/home/tabs/sebhaScreen.dart';
 import 'package:islami_app/home/tabs/settings/setting_tab.dart';
 import 'package:islami_app/my_them.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:provider/provider.dart';
+
+import '../providers/myProvider.dart';
 
 class HomeScreen extends StatefulWidget {
   static const String routeName = 'home';
@@ -19,10 +22,12 @@ class _HomeScreenState extends State<HomeScreen> {
 
   @override
   Widget build(BuildContext context) {
+    var provider = Provider.of<Myprovider>(context);
+
     return Stack(
       children: [
         Image.asset(
-          'assets/images/background.png',
+         provider.changeBG(),
           width: double.infinity,
           fit: BoxFit.fitWidth,
         ),
